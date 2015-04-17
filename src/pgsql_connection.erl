@@ -41,10 +41,11 @@
     foreach/4,
     foreach/5,
     foreach/6,
- 
+
+    copy/3,
     send_copy_data/2,
     send_copy_end/1,
-    
+
     % Cancel current query
     cancel/1,
 
@@ -60,7 +61,7 @@
     param_query/3,
     param_query/4,
     param_query/5,
-    
+
     convert_statement/1,
 
     % supervisor API
@@ -85,7 +86,7 @@
 %% Default settings
 %%--------------------------------------------------------------------
 
--define(REQUEST_TIMEOUT, infinity). 
+-define(REQUEST_TIMEOUT, infinity).
 -define(DEFAULT_HOST, "127.0.0.1").
 -define(DEFAULT_PORT, 5432).
 -define(DEFAULT_USER, "storage").
@@ -183,7 +184,7 @@
 
 %%--------------------------------------------------------------------
 %% @doc Open a connection to a database, throws an error if it failed.
-%% 
+%%
 -spec open(iodata() | open_options()) -> pgsql_connection().
 open([Option | _OptionsT] = Options) when is_tuple(Option) orelse is_atom(Option) ->
     open0(Options);
@@ -192,28 +193,28 @@ open(Database) ->
 
 %%--------------------------------------------------------------------
 %% @doc Open a connection to a database, throws an error if it failed.
-%% 
+%%
 -spec open(iodata(), iodata()) -> pgsql_connection().
 open(Database, User) ->
     open(Database, User, ?DEFAULT_PASSWORD).
 
 %%--------------------------------------------------------------------
 %% @doc Open a connection to a database, throws an error if it failed.
-%% 
+%%
 -spec open(iodata(), iodata(), iodata()) -> pgsql_connection().
 open(Database, User, Password) ->
     open(?DEFAULT_HOST, Database, User, Password).
 
 %%--------------------------------------------------------------------
 %% @doc Open a connection to a database, throws an error if it failed.
-%% 
+%%
 -spec open(string(), string(), string(), string()) -> pgsql_connection().
 open(Host, Database, User, Password) ->
     open(Host, Database, User, Password, []).
 
 %%--------------------------------------------------------------------
 %% @doc Open a connection to a database, throws an error if it failed.
-%% 
+%%
 -spec open(string(), string(), string(), string(), open_options()) -> pgsql_connection().
 open(Host, Database, User, Password, Options0) ->
     Options = [{host, Host}, {database, Database}, {user, User}, {password, Password} | Options0],
@@ -228,7 +229,7 @@ open0(Options) ->
 
 %%--------------------------------------------------------------------
 %% @doc Close a connection.
-%% 
+%%
 -spec close(pgsql_connection()) -> ok.
 close({pgsql_connection, Pid}) ->
     MonitorRef = erlang:monitor(process, Pid),
@@ -244,7 +245,7 @@ close({pgsql_connection, Pid}) ->
 %% <li>``{updated, NbRows}'' if the query was not a SELECT query.</li>
 %% </ul>
 %% (the return types are compatible with ODBC's sql_query function).
-%% 
+%%
 -spec sql_query(iodata(), pgsql_connection()) -> odbc_result_tuple() | {error, any()}.
 sql_query(Query, Connection) ->
     sql_query(Query, [], Connection).
@@ -393,6 +394,13 @@ foreach(Function, Query, Parameters, QueryOptions, Connection) ->
 -spec foreach(fun((tuple()) -> any()), iodata(), [any()], query_options(), timeout(), pgsql_connection()) -> ok | {error, any()}.
 foreach(Function, Query, Parameters, QueryOptions, Timeout, {pgsql_connection, ConnectionPid}) ->
     call_and_retry(ConnectionPid, {foreach, Query, Parameters, Function, QueryOptions, Timeout}, proplists:get_bool(retry, QueryOptions), adjust_timeout(Timeout)).
+
+%%--------------------------------------------------------------------
+%% @doc Start COPY, send binary data and close COPY
+%%
+-spec copy(iodata(), iodata(), pgsql_connection()) -> {copy, integer()} | {error, any()}.
+copy(StartQuery, Data, {pgsql_connection, ConnectionPid}) ->
+    call_and_retry(ConnectionPid, {copy, StartQuery, Data}, false, infinity).
 
 %%--------------------------------------------------------------------
 %% @doc Send some binary data after starting a COPY
@@ -1060,6 +1068,33 @@ pgsql_extended_query_receive_loop0(Message, _LoopState, _Fun, _Acc0, _FinalizeFu
     Error = {error, {unexpected_message, Message}},
     flush_until_ready_for_query(Error, AsyncT, State0).
 
+pgsql_copy(StartQuery, Data, From, State0 = #state{socket = {SockModule, Sock}}) ->
+    QueryMessage = pgsql_protocol:encode_query_message(StartQuery),
+    case SockModule:send(Sock, QueryMessage) of
+        ok ->
+            {{copy_in,[text]}, State1} = pgsql_simple_query_loop([], [], sync, State0),
+            DateMessage                = pgsql_protocol:encode_copy_data_message(Data),
+            case SockModule:send(Sock, DateMessage) of
+                ok ->
+                    State2  = State1#state{current = undefined},
+                    pgsql_send_copy_end(From, State2);
+                {error, close} = SendQueryError ->
+                    gen_server:reply(From, SendQueryError),
+                    State1#state{socket = closed};
+                {error, _} = SendQueryError ->
+                    gen_server:reply(From, SendQueryError),
+                    State1
+            end;
+        {error, close} = SendQueryError ->
+            gen_server:reply(From, SendQueryError),
+            State0#state{socket = closed};
+        {error, _} = SendQueryError ->
+            gen_server:reply(From, SendQueryError),
+            State0
+    end.
+
+
+
 pgsql_send_copy_data(Data, From, #state{socket = {SockModule, Sock}} = State0) ->
     Message = pgsql_protocol:encode_copy_data_message(Data),
     Result = SockModule:send(Sock, Message),
@@ -1072,6 +1107,7 @@ pgsql_send_copy_end(From, #state{socket = {SockModule, Sock}} = State0) ->
     {Result1, State1} = pgsql_send_copy_end_flush(Result0, State0),
     gen_server:reply(From, Result1),
     State1.
+
 pgsql_send_copy_end_flush(Result0, #state{socket = Socket, subscribers = Subscribers} = State0) ->
     case receive_message(Socket, sync, Subscribers) of
         {ok, {command_complete, <<"COPY ",CopyCount/binary>>}} ->
@@ -1117,7 +1153,7 @@ fold_finalize(_Tag, Acc) ->
     {ok, Acc}.
 
 map_fn(Row, {Function, Acc}) -> {Function, [Function(Row) | Acc]}.
-    
+
 map_finalize(_Tag, {_Function, Acc}) ->
     {ok, lists:reverse(Acc)}.
 
@@ -1130,7 +1166,7 @@ foreach_finalize(_Tag, _Function) ->
 
 %%--------------------------------------------------------------------
 %% @doc Handle parameter status messages. These can happen anytime.
-%% 
+%%
 handle_parameter(<<"integer_datetimes">> = Key, <<"on">> = Value, AsyncT, State0) ->
     set_parameter_async(Key, Value, AsyncT),
     State0#state{integer_datetimes = true};
@@ -1236,7 +1272,7 @@ decode_object(Object) ->
     ObjectUStr = re:replace(Object, <<" ">>, <<"_">>, [global, {return, list}]),
     ObjectULC = string:to_lower(ObjectUStr),
     [list_to_atom(ObjectULC)].
-    
+
 %%--------------------------------------------------------------------
 %% @doc Convert a native result to an odbc result.
 %%
@@ -1404,7 +1440,7 @@ process_active_data(PartialHeader, #state{socket = {SockModule, Sock}} = State0)
             error_logger:error_msg("Unexpected asynchronous error\n~p\n", [Error]),
             SockModule:close(Sock),
             State0#state{socket = closed}
-    end.    
+    end.
 
 %%--------------------------------------------------------------------
 %% @doc Subscribe to notifications. We setup a monitor to clean the list up.
@@ -1430,9 +1466,9 @@ do_unsubscribe(Pid, List) ->
 %%
 call_and_retry(ConnPid, Command, Retry, Timeout) ->
     case gen_server:call(ConnPid, {do_query, Command}, Timeout) of
-        {error, closed} when Retry -> 
+        {error, closed} when Retry ->
             call_and_retry(ConnPid, Command, Retry, Timeout);
-        Other -> 
+        Other ->
             Other
     end.
 
@@ -1467,6 +1503,8 @@ do_query0({map, Query, Parameters, Function, QueryOptions, Timeout}, From, #stat
 do_query0({foreach, Query, Parameters, Function, QueryOptions, Timeout}, From, #state{} = State0) ->
     MaxRowsStep = proplists:get_value(max_rows_step, QueryOptions, ?DEFAULT_MAX_ROWS_STEP),
     pgsql_extended_query(Query, Parameters, fun foreach_fn/2, Function, fun foreach_finalize/2, {cursor, MaxRowsStep}, Timeout, From, State0);
+do_query0({copy, StartQuery, Data}, From, State0) ->
+    pgsql_copy(StartQuery, Data, From, State0);
 do_query0({send_copy_data, Data}, From, State0) ->
     pgsql_send_copy_data(Data, From, State0);
 do_query0({send_copy_end}, From, State0) ->

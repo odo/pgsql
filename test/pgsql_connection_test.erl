@@ -67,7 +67,7 @@ open_close_test_() ->
     ]}.
 
 reconnect_proxy_loop() ->
-    {ok, LSock} = gen_tcp:listen(35432, [{active, true}, binary, {reuseaddr, true}]),    
+    {ok, LSock} = gen_tcp:listen(35432, [{active, true}, binary, {reuseaddr, true}]),
     reconnect_proxy_loop0(LSock, undefined, undefined).
 
 reconnect_proxy_loop0(LSock, undefined, undefined) ->
@@ -287,6 +287,37 @@ copy_test_() ->
      ]
      end}.
 
+copy_in_one_command_test_() ->
+    {setup,
+     fun() ->
+	     {ok, SupPid} = pgsql_connection_sup:start_link(),
+	     Conn = pgsql_connection:open("test", "test"),
+	     {SupPid, Conn}
+     end,
+     fun({SupPid, Conn}) ->
+	     pgsql_connection:close(Conn),
+	     kill_sup(SupPid)
+     end,
+     fun({_SupPid, Conn}) ->
+     [
+      {"Create temporary table for copies",
+       ?_assertEqual({{create,table},[]}, pgsql_connection:simple_query("create temporary table copy_in_one_go_data (foo integer, bar text)", Conn))
+      },
+      {"Copy",
+       ?_assertEqual({copy,1}, pgsql_connection:copy("copy copy_in_one_go_data from stdin", <<"100\tcentury\n">>, Conn))
+      },
+      {"Check copy data",
+       ?_assertEqual({{select, 1},[{100,<<"century">>}]}, pgsql_connection:simple_query("select * from copy_in_one_go_data where foo = 100", Conn))
+      },
+      {"Copy (2)",
+       ?_assertEqual({copy,2}, pgsql_connection:copy("copy copy_in_one_go_data from stdin", <<"101\tx\n102\ty\n">>, Conn))
+      },
+      {"Check copy data (2)",
+       ?_assertMatch({{select,2},_}, pgsql_connection:extended_query("select * from copy_in_one_go_data where foo > 100", [], Conn))
+      }
+     ]
+     end}.
+
 types_test_() ->
     {setup,
     fun() ->
@@ -476,7 +507,7 @@ array_types_test_() ->
                     ?_assertEqual({{select,1},[{{array,[]}}]}, pgsql_connection:extended_query("select '{}'::text[]", [], Conn)),
                     ?_assertEqual({{select,1},[{{array,[]}}]}, pgsql_connection:extended_query("select '{}'::int[]", [], Conn)),
                     ?_assertEqual({{select,1},[{{array,[]}}]}, pgsql_connection:extended_query("select ARRAY[]::text[]", [], Conn)),
-                    
+
                     ?_assertEqual({{select,1},[{{array,[{array,[<<"2">>]},{array, [<<"3">>]}]}}]}, pgsql_connection:simple_query("select '{{\"2\"}, {\"3\"}}'::text[][]", Conn)),
                     ?_assertEqual({{select,1},[{{array,[{array,[1,2]}, {array, [3,4]}]}}]}, pgsql_connection:simple_query("select ARRAY[ARRAY[1,2], ARRAY[3,4]]", Conn)),
                     ?_assertEqual({{select,1},[{{array,[]}}]}, pgsql_connection:extended_query("select $1::bytea[]", [{array, []}], Conn)),
@@ -938,8 +969,8 @@ tz_test_() ->
         ?_assertEqual({{select,1},[{{14,4,3}}]},   pgsql_connection:extended_query("select '2015-01-03 11:04:03-0300'::timetz", [], PosTZConn)),
         ?_assertEqual({{select,1},[{{{2015,1,3},{14,4,3}}}]},   pgsql_connection:simple_query("select '2015-01-03 11:04:03-0300'::timestamptz", PosTZConn)),
         ?_assertEqual({{select,1},[{{{2015,1,3},{14,4,3}}}]},   pgsql_connection:extended_query("select '2015-01-03 11:04:03-0300'::timestamptz", [], PosTZConn)),
-        
-        
+
+
         ?_assertEqual({{select,1},[{{11,4,3}}]},   pgsql_connection:simple_query("select '2015-01-03 11:04:03'::time", NegTZConn)),
         ?_assertEqual({{select,1},[{{9,4,3}}]},   pgsql_connection:simple_query("select '2015-01-03 11:04:03'::timetz", NegTZConn)),
         ?_assertEqual({{select,1},[{{11,4,3}}]},    pgsql_connection:extended_query("select '2015-01-03 11:04:03'::time", [], NegTZConn)),
@@ -1131,7 +1162,7 @@ timeout_test_() ->
             ?assertEqual({{select, 1}, [{1}]}, pgsql_connection:simple_query("select 1", [], Conn)),
             ShowResult3 = pgsql_connection:simple_query("show statement_timeout", Conn),
             ?assertMatch({show, [{_}]}, ShowResult3),
-            
+
             % Only guarantee is that if the default was 0 (infinity), it is maintained
             % after a query with a default (infinity) timeout.
             if
@@ -1472,7 +1503,7 @@ async_process_loop(TestProcess) ->
             TestProcess ! {self(), OtherMessage},
             async_process_loop(TestProcess)
     end.
-        
+
 notify_test_() ->
     {setup,
     fun() ->
