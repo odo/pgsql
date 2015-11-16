@@ -1072,8 +1072,8 @@ pgsql_copy(StartQuery, Data, From, State0 = #state{socket = {SockModule, Sock}})
     QueryMessage = pgsql_protocol:encode_query_message(StartQuery),
     case SockModule:send(Sock, QueryMessage) of
         ok ->
-            {{copy_in,[text]}, State1} = pgsql_simple_query_loop([], [], sync, State0),
-            DateMessage                = pgsql_protocol:encode_copy_data_message(Data),
+            {{copy_in,[_]}, State1} = pgsql_simple_query_loop([], [], sync, State0),
+            DateMessage             = pgsql_protocol:encode_copy_data_message(Data),
             case SockModule:send(Sock, DateMessage) of
                 ok ->
                     State2  = State1#state{current = undefined},

@@ -1,0 +1,371 @@
+ABSTIMEARRAYOID	pgsql_internal.hrl	/^-define(ABSTIMEARRAYOID, 1023).     % not #defined/
+ABSTIMEOID	pgsql_internal.hrl	/^-define(ABSTIMEOID, 702).$/
+ACLITEMARRAYOID	pgsql_internal.hrl	/^-define(ACLITEMARRAYOID, 1034).     % not #defined/
+ACLITEMOID	pgsql_internal.hrl	/^-define(ACLITEMOID, 1033).$/
+ANYARRAYOID	pgsql_internal.hrl	/^-define(ANYARRAYOID, 2277).$/
+ANYELEMENTOID	pgsql_internal.hrl	/^-define(ANYELEMENTOID, 2283).$/
+ANYENUMOID	pgsql_internal.hrl	/^-define(ANYENUMOID, 3500).$/
+ANYNONARRAYOID	pgsql_internal.hrl	/^-define(ANYNONARRAYOID, 2776).$/
+ANYOID	pgsql_internal.hrl	/^-define(ANYOID, 2276).$/
+ANYRANGEOID	pgsql_internal.hrl	/^-define(ANYRANGEOID, 3831).$/
+BITOID	pgsql_internal.hrl	/^-define(BITOID, 1560).$/
+BOOLARRAYOID	pgsql_internal.hrl	/^-define(BOOLARRAYOID, 1000).        % not #defined/
+BOOLOID	pgsql_internal.hrl	/^-define(BOOLOID, 16).$/
+BOXARRAYOID	pgsql_internal.hrl	/^-define(BOXARRAYOID, 1020).         % not #defined/
+BOXOID	pgsql_internal.hrl	/^-define(BOXOID, 603).$/
+BPCHARARRAYOID	pgsql_internal.hrl	/^-define(BPCHARARRAYOID, 1014).      % not #defined/
+BPCHAROID	pgsql_internal.hrl	/^-define(BPCHAROID, 1042).$/
+BYTEAARRAYOID	pgsql_internal.hrl	/^-define(BYTEAARRAYOID, 1001).       % not #defined/
+BYTEAOID	pgsql_internal.hrl	/^-define(BYTEAOID, 17).$/
+CASHOID	pgsql_internal.hrl	/^-define(CASHOID, 790).$/
+CHARARRAYOID	pgsql_internal.hrl	/^-define(CHARARRAYOID, 1002).        % not #defined/
+CHAROID	pgsql_internal.hrl	/^-define(CHAROID, 18).$/
+CIDARRAYOID	pgsql_internal.hrl	/^-define(CIDARRAYOID, 1012).         % not #defined/
+CIDOID	pgsql_internal.hrl	/^-define(CIDOID, 29).$/
+CIDRARRAYOID	pgsql_internal.hrl	/^-define(CIDRARRAYOID, 651).         % not #defined/
+CIDROID	pgsql_internal.hrl	/^-define(CIDROID, 650).$/
+CIRCLEOID	pgsql_internal.hrl	/^-define(CIRCLEOID, 718).$/
+CSTRINGARRAYOID	pgsql_internal.hrl	/^-define(CSTRINGARRAYOID, 1263).$/
+CSTRINGOID	pgsql_internal.hrl	/^-define(CSTRINGOID, 2275).$/
+DATEOID	pgsql_internal.hrl	/^-define(DATEOID, 1082).$/
+DEFAULT_HOST	pgsql_connection.erl	/^-define(DEFAULT_HOST, "127.0.0.1").$/
+DEFAULT_MAX_ROWS_STEP	pgsql_connection.erl	/^-define(DEFAULT_MAX_ROWS_STEP, 1000).$/
+DEFAULT_PASSWORD	pgsql_connection.erl	/^-define(DEFAULT_PASSWORD, "").$/
+DEFAULT_PORT	pgsql_connection.erl	/^-define(DEFAULT_PORT, 5432).$/
+DEFAULT_USER	pgsql_connection.erl	/^-define(DEFAULT_USER, "storage").$/
+FDW_HANDLEROID	pgsql_internal.hrl	/^-define(FDW_HANDLEROID, 3115).$/
+FLOAT4ARRAYOID	pgsql_internal.hrl	/^-define(FLOAT4ARRAYOID, 1021).$/
+FLOAT4OID	pgsql_internal.hrl	/^-define(FLOAT4OID, 700).$/
+FLOAT8ARRAYOID	pgsql_internal.hrl	/^-define(FLOAT8ARRAYOID, 1022).      % not #defined/
+FLOAT8OID	pgsql_internal.hrl	/^-define(FLOAT8OID, 701).$/
+GTSVECTOROID	pgsql_internal.hrl	/^-define(GTSVECTOROID, 3642).$/
+INETARRAYOID	pgsql_internal.hrl	/^-define(INETARRAYOID, 1041).        % not #defined/
+INETOID	pgsql_internal.hrl	/^-define(INETOID, 869).$/
+INT2ARRAYOID	pgsql_internal.hrl	/^-define(INT2ARRAYOID, 1005).        % not #defined/
+INT2OID	pgsql_internal.hrl	/^-define(INT2OID, 21).$/
+INT2VECTORARRAYOID	pgsql_internal.hrl	/^-define(INT2VECTORARRAYOID, 1006).  % not #defined/
+INT2VECTOROID	pgsql_internal.hrl	/^-define(INT2VECTOROID, 22).$/
+INT4ARRAYOID	pgsql_internal.hrl	/^-define(INT4ARRAYOID, 1007).$/
+INT4OID	pgsql_internal.hrl	/^-define(INT4OID, 23).$/
+INT4RANGEOID	pgsql_internal.hrl	/^-define(INT4RANGEOID, 3904).$/
+INT8ARRAYOID	pgsql_internal.hrl	/^-define(INT8ARRAYOID, 1016).        % not #defined/
+INT8OID	pgsql_internal.hrl	/^-define(INT8OID, 20).$/
+INTERNALOID	pgsql_internal.hrl	/^-define(INTERNALOID, 2281).$/
+INTERVALOID	pgsql_internal.hrl	/^-define(INTERVALOID, 1186).$/
+JSONOID	pgsql_internal.hrl	/^-define(JSONOID, 114).$/
+LANGUAGE_HANDLEROID	pgsql_internal.hrl	/^-define(LANGUAGE_HANDLEROID, 2280).$/
+LINEOID	pgsql_internal.hrl	/^-define(LINEOID, 628).$/
+LSEGARRAYOID	pgsql_internal.hrl	/^-define(LSEGARRAYOID, 1018).        % not #defined/
+LSEGOID	pgsql_internal.hrl	/^-define(LSEGOID, 601).$/
+MACADDRARRAYOID	pgsql_internal.hrl	/^-define(MACADDRARRAYOID, 1040).     % not #defined/
+MACADDROID	pgsql_internal.hrl	/^-define(MACADDROID, 829).$/
+MAX_RESTARTS	pgsql_connection_sup.erl	/^-define(MAX_RESTARTS, 5).$/
+MAX_RESTARTS	pgsql_sup.erl	/^-define(MAX_RESTARTS, 5).$/
+MAX_RESTARTS_PERIOD	pgsql_connection_sup.erl	/^-define(MAX_RESTARTS_PERIOD, 1).$/
+MAX_RESTARTS_PERIOD	pgsql_sup.erl	/^-define(MAX_RESTARTS_PERIOD, 1).$/
+MESSAGE_HEADER_SIZE	pgsql_connection.erl	/^-define(MESSAGE_HEADER_SIZE, 5).$/
+NAMEARRAYOID	pgsql_internal.hrl	/^-define(NAMEARRAYOID, 1003).        % not #defined/
+NAMEOID	pgsql_internal.hrl	/^-define(NAMEOID, 19).$/
+NBASE	pgsql_protocol.erl	/^-define(NBASE, 10000).$/
+NUMERICOID	pgsql_internal.hrl	/^-define(NUMERICOID, 1700).$/
+OIDARRAYOID	pgsql_internal.hrl	/^-define(OIDARRAYOID, 1028).         % not #defined/
+OIDOID	pgsql_internal.hrl	/^-define(OIDOID, 26).$/
+OIDVECTORARRAYOID	pgsql_internal.hrl	/^-define(OIDVECTORARRAYOID, 1013).   % not #defined/
+OIDVECTOROID	pgsql_internal.hrl	/^-define(OIDVECTOROID, 30).$/
+OPAQUEOID	pgsql_internal.hrl	/^-define(OPAQUEOID, 2282).$/
+PATHARRAYOID	pgsql_internal.hrl	/^-define(PATHARRAYOID, 1019).        % not #defined/
+PATHOID	pgsql_internal.hrl	/^-define(PATHOID, 602).$/
+PGNODETREEOID	pgsql_internal.hrl	/^-define(PGNODETREEOID, 194).$/
+PG_TYPE_H_TYPES_DICT	pgsql_internal.hrl	/^-define(PG_TYPE_H_TYPES_DICT, [$/
+POINTARRAYOID	pgsql_internal.hrl	/^-define(POINTARRAYOID, 1017).       % not #defined/
+POINTOID	pgsql_internal.hrl	/^-define(POINTOID, 600).$/
+POLYGONARRAYOID	pgsql_internal.hrl	/^-define(POLYGONARRAYOID, 1027).     % not #defined/
+POLYGONOID	pgsql_internal.hrl	/^-define(POLYGONOID, 604).$/
+POSTGRESQL_GD_EPOCH	pgsql_protocol.erl	/^-define(POSTGRESQL_GD_EPOCH, 730485). % ?_value(ca/
+POSTGRESQL_GS_EPOCH	pgsql_protocol.erl	/^-define(POSTGRESQL_GS_EPOCH, 63113904000). % ?_val/
+PROTOCOL_VERSION_MAJOR	pgsql_protocol.erl	/^-define(PROTOCOL_VERSION_MAJOR, 3).$/
+PROTOCOL_VERSION_MINOR	pgsql_protocol.erl	/^-define(PROTOCOL_VERSION_MINOR, 0).$/
+RECORDARRAYOID	pgsql_internal.hrl	/^-define(RECORDARRAYOID, 2287).$/
+RECORDOID	pgsql_internal.hrl	/^-define(RECORDOID, 2249).$/
+REFCURSOROID	pgsql_internal.hrl	/^-define(REFCURSOROID, 1790).$/
+REGCLASSOID	pgsql_internal.hrl	/^-define(REGCLASSOID, 2205).$/
+REGCONFIGOID	pgsql_internal.hrl	/^-define(REGCONFIGOID, 3734).$/
+REGDICTIONARYOID	pgsql_internal.hrl	/^-define(REGDICTIONARYOID, 3769).$/
+REGOPERATOROID	pgsql_internal.hrl	/^-define(REGOPERATOROID, 2204).$/
+REGOPEROID	pgsql_internal.hrl	/^-define(REGOPEROID, 2203).$/
+REGPROCARRAYOID	pgsql_internal.hrl	/^-define(REGPROCARRAYOID, 1008).     % not #defined/
+REGPROCEDUREOID	pgsql_internal.hrl	/^-define(REGPROCEDUREOID, 2202).$/
+REGPROCOID	pgsql_internal.hrl	/^-define(REGPROCOID, 24).$/
+REGTYPEARRAYOID	pgsql_internal.hrl	/^-define(REGTYPEARRAYOID, 2211).$/
+REGTYPEOID	pgsql_internal.hrl	/^-define(REGTYPEOID, 2206).$/
+RELTIMEARRAYOID	pgsql_internal.hrl	/^-define(RELTIMEARRAYOID, 1024).     % not #defined/
+RELTIMEOID	pgsql_internal.hrl	/^-define(RELTIMEOID, 703).$/
+REQUEST_TIMEOUT	pgsql_connection.erl	/^-define(REQUEST_TIMEOUT, infinity).$/
+SHUTDOWN_DELAY	pgsql_connection_sup.erl	/^-define(SHUTDOWN_DELAY, 5000).$/
+SHUTDOWN_DELAY	pgsql_sup.erl	/^-define(SHUTDOWN_DELAY, 5000).$/
+TEXTARRAYOID	pgsql_internal.hrl	/^-define(TEXTARRAYOID, 1009).$/
+TEXTOID	pgsql_internal.hrl	/^-define(TEXTOID, 25).$/
+TIDARRAYOID	pgsql_internal.hrl	/^-define(TIDARRAYOID, 1010).         % not #defined/
+TIDOID	pgsql_internal.hrl	/^-define(TIDOID, 27).$/
+TIMEOID	pgsql_internal.hrl	/^-define(TIMEOID, 1083).$/
+TIMEOUT_GEN_SERVER_CALL_DELTA	pgsql_connection.erl	/^-define(TIMEOUT_GEN_SERVER_CALL_DELTA, 5000).$/
+TIMESTAMPOID	pgsql_internal.hrl	/^-define(TIMESTAMPOID, 1114).$/
+TIMESTAMPTZOID	pgsql_internal.hrl	/^-define(TIMESTAMPTZOID, 1184).$/
+TIMETZOID	pgsql_internal.hrl	/^-define(TIMETZOID, 1266).$/
+TINTERVALARRAYOID	pgsql_internal.hrl	/^-define(TINTERVALARRAYOID, 1025).   % not #defined/
+TINTERVALOID	pgsql_internal.hrl	/^-define(TINTERVALOID, 704).$/
+TRIGGEROID	pgsql_internal.hrl	/^-define(TRIGGEROID, 2279).$/
+TSQUERYOID	pgsql_internal.hrl	/^-define(TSQUERYOID, 3615).$/
+TSVECTOROID	pgsql_internal.hrl	/^-define(TSVECTOROID, 3614).$/
+UNKNOWNOID	pgsql_internal.hrl	/^-define(UNKNOWNOID, 705).$/
+UUIDOID	pgsql_internal.hrl	/^-define(UUIDOID, 2950). % not #defined$/
+VARBITOID	pgsql_internal.hrl	/^-define(VARBITOID, 1562).$/
+VARCHARARRAYOID	pgsql_internal.hrl	/^-define(VARCHARARRAYOID, 1015).     % not #defined/
+VARCHAROID	pgsql_internal.hrl	/^-define(VARCHAROID, 1043).$/
+VOIDOID	pgsql_internal.hrl	/^-define(VOIDOID, 2278).$/
+XIDARRAYOID	pgsql_internal.hrl	/^-define(XIDARRAYOID, 1011).         % not #defined/
+XIDOID	pgsql_internal.hrl	/^-define(XIDOID, 28).$/
+XMLOID	pgsql_internal.hrl	/^-define(XMLOID, 142).$/
+adjust_time	pgsql_protocol.erl	/^adjust_time(Time, 0) -> Time;$/
+adjust_timeout	pgsql_connection.erl	/^adjust_timeout(infinity) -> infinity;$/
+array_type_to_element_type	pgsql_protocol.erl	/^array_type_to_element_type(undefined, _OIDMap) -> /
+authentication_cleartext_password	pgsql_internal.hrl	/^-record(authentication_cleartext_password, {}).$/
+authentication_gss	pgsql_internal.hrl	/^-record(authentication_gss, {}).$/
+authentication_gss_continue	pgsql_internal.hrl	/^-record(authentication_gss_continue, {$/
+authentication_kerberos_v5	pgsql_internal.hrl	/^-record(authentication_kerberos_v5, {}).$/
+authentication_md5_password	pgsql_internal.hrl	/^-record(authentication_md5_password, {$/
+authentication_ok	pgsql_internal.hrl	/^-record(authentication_ok, {}).$/
+authentication_scm_credential	pgsql_internal.hrl	/^-record(authentication_scm_credential, {}).$/
+authentication_sspi	pgsql_internal.hrl	/^-record(authentication_sspi, {}).$/
+backend_key_data	pgsql_internal.hrl	/^-record(backend_key_data, {$/
+batch_query	pgsql_connection.erl	/^batch_query(Query, Parameters, Connection) ->$/
+batch_query	pgsql_connection.erl	/^batch_query(Query, Parameters, QueryOptions, Conne/
+batch_query	pgsql_connection.erl	/^batch_query(Query, Parameters, QueryOptions, Timeo/
+binary_to_integer	pgsql_connection.erl	/^-define(binary_to_integer(Bin), list_to_integer(bi/
+bind_complete	pgsql_internal.hrl	/^-record(bind_complete, {}).$/
+bind_requires_statement_description	pgsql_protocol.erl	/^bind_requires_statement_description([]) -> false;$/
+broadcast_to_subscribers	pgsql_connection.erl	/^broadcast_to_subscribers(Packet, AsyncT, Subscribe/
+call_and_retry	pgsql_connection.erl	/^call_and_retry(ConnPid, Command, Retry, Timeout) -/
+cancel	pgsql_connection.erl	/^cancel({pgsql_connection, ConnectionPid}) ->$/
+close	pgsql_connection.erl	/^close({pgsql_connection, Pid}) ->$/
+close_complete	pgsql_internal.hrl	/^-record(close_complete, {}).$/
+code_change	pgsql_connection.erl	/^code_change(Vsn, State, Extra) ->$/
+command_complete	pgsql_internal.hrl	/^-record(command_complete, {$/
+command_completed	pgsql_connection.erl	/^command_completed(Command, #state{current = Comman/
+convert_statement	pgsql_connection.erl	/^convert_statement(StatementStr) when is_list(State/
+convert_statement_0	pgsql_connection.erl	/^convert_statement_0([], _InString, _PlaceholderInd/
+copy	pgsql_connection.erl	/^copy(StartQuery, Data, {pgsql_connection, Connecti/
+copy_both_response	pgsql_internal.hrl	/^-record(copy_both_response, {$/
+copy_data	pgsql_internal.hrl	/^-record(copy_data, {$/
+copy_done	pgsql_internal.hrl	/^-record(copy_done, {}).$/
+copy_in_response	pgsql_internal.hrl	/^-record(copy_in_response, {$/
+copy_out_response	pgsql_internal.hrl	/^-record(copy_out_response, {$/
+data_row	pgsql_internal.hrl	/^-record(data_row, {$/
+decode_array_bin	pgsql_protocol.erl	/^decode_array_bin(<<Dimensions:32\/signed-integer, _/
+decode_array_bin_aux	pgsql_protocol.erl	/^decode_array_bin_aux(_ElementOID, <<>>, _OIDMap, _/
+decode_array_text	pgsql_protocol.erl	/^decode_array_text(_Type, _OIDMap, <<>>, [Acc]) ->$/
+decode_array_text_find	pgsql_protocol.erl	/^decode_array_text_find(<<",", Next\/binary>>, Count/
+decode_authentication_message	pgsql_protocol.erl	/^decode_authentication_message(<<0:32\/integer>>) ->/
+decode_backend_key_data_message	pgsql_protocol.erl	/^decode_backend_key_data_message(<<ProcID:32\/intege/
+decode_bind_complete_message	pgsql_protocol.erl	/^decode_bind_complete_message(<<>>) -> {ok, #bind_c/
+decode_close_complete_message	pgsql_protocol.erl	/^decode_close_complete_message(<<>>) -> {ok, #close/
+decode_command_complete_message	pgsql_protocol.erl	/^decode_command_complete_message(Payload) ->$/
+decode_copy_both_response_message	pgsql_protocol.erl	/^decode_copy_both_response_message(Payload) ->$/
+decode_copy_data_message	pgsql_protocol.erl	/^decode_copy_data_message(Payload) -> {ok, #copy_da/
+decode_copy_done_message	pgsql_protocol.erl	/^decode_copy_done_message(<<>>) -> {ok, #copy_done{/
+decode_copy_in_response_message	pgsql_protocol.erl	/^decode_copy_in_response_message(Payload) ->$/
+decode_copy_out_response_message	pgsql_protocol.erl	/^decode_copy_out_response_message(Payload) ->$/
+decode_copy_response_message	pgsql_protocol.erl	/^decode_copy_response_message(<<Format:8\/integer, N/
+decode_data_row_message	pgsql_protocol.erl	/^decode_data_row_message(<<N:16\/integer, Rest\/binar/
+decode_data_row_values	pgsql_protocol.erl	/^decode_data_row_values(Columns, Binary) ->$/
+decode_data_row_values0	pgsql_protocol.erl	/^decode_data_row_values0(<<>>, 0, Acc) -> {ok, list/
+decode_empty_query_response_message	pgsql_protocol.erl	/^decode_empty_query_response_message(<<>>) -> {ok, /
+decode_error_and_mention_field_type	pgsql_protocol.erl	/^decode_error_and_mention_field_type($S) -> severit/
+decode_error_and_notice_message_fields	pgsql_protocol.erl	/^decode_error_and_notice_message_fields(Binary) ->$/
+decode_error_and_notice_message_fields0	pgsql_protocol.erl	/^decode_error_and_notice_message_fields0(<<0>>, Acc/
+decode_error_response_message	pgsql_protocol.erl	/^decode_error_response_message(Payload) ->$/
+decode_format_code	pgsql_protocol.erl	/^decode_format_code(0) -> {ok, text};$/
+decode_format_codes	pgsql_protocol.erl	/^decode_format_codes(Binary) ->$/
+decode_format_codes0	pgsql_protocol.erl	/^decode_format_codes0(<<FormatCode:16\/integer, Tail/
+decode_function_call_response_message	pgsql_protocol.erl	/^decode_function_call_response_message(<<-1:32\/sign/
+decode_hex	pgsql_protocol.erl	/^decode_hex(<<X, Y, Tail\/binary>>) ->$/
+decode_message	pgsql_protocol.erl	/^decode_message($R, Payload) -> decode_authenticati/
+decode_no_data_message	pgsql_protocol.erl	/^decode_no_data_message(<<>>) -> {ok, #no_data{}};$/
+decode_notice_response_message	pgsql_protocol.erl	/^decode_notice_response_message(Payload) ->$/
+decode_notification_response_message	pgsql_protocol.erl	/^decode_notification_response_message(<<ProcID:32\/i/
+decode_numeric_bin	pgsql_protocol.erl	/^decode_numeric_bin(<<0:16\/unsigned, _Weight:16, 16/
+decode_numeric_bin0	pgsql_protocol.erl	/^decode_numeric_bin0(<<>>, Weight, Acc) -> {Acc, We/
+decode_numeric_bin_scale	pgsql_protocol.erl	/^decode_numeric_bin_scale(Value, -1) -> Value;$/
+decode_object	pgsql_connection.erl	/^decode_object(<<FirstByte, _\/binary>> = Object) wh/
+decode_oid	pgsql_protocol.erl	/^decode_oid(Oid, OIDMap) ->$/
+decode_parameter_data_types	pgsql_protocol.erl	/^decode_parameter_data_types(Binary) ->$/
+decode_parameter_data_types0	pgsql_protocol.erl	/^decode_parameter_data_types0(<<>>, Acc) -> lists:r/
+decode_parameter_description_message	pgsql_protocol.erl	/^decode_parameter_description_message(<<Count:16\/in/
+decode_parameter_status_message	pgsql_protocol.erl	/^decode_parameter_status_message(Payload) ->$/
+decode_parse_complete_message	pgsql_protocol.erl	/^decode_parse_complete_message(<<>>) -> {ok, #parse/
+decode_point_text	pgsql_protocol.erl	/^decode_point_text(Str) ->$/
+decode_points_bin	pgsql_protocol.erl	/^decode_points_bin(<<N:32\/unsigned-integer, Points\//
+decode_points_text	pgsql_protocol.erl	/^decode_points_text(Prefix, Suffix, PStr) ->$/
+decode_points_text_aux	pgsql_protocol.erl	/^decode_points_text_aux(Prefix, Suffix, [Before|PSt/
+decode_portal_suspended_message	pgsql_protocol.erl	/^decode_portal_suspended_message(<<>>) -> {ok, #por/
+decode_ready_for_query_message	pgsql_protocol.erl	/^decode_ready_for_query_message(<<$I>>) -> {ok, #re/
+decode_row	pgsql_protocol.erl	/^decode_row(Descs, Values, OIDMap, IntegerDateTimes/
+decode_row0	pgsql_protocol.erl	/^decode_row0([Desc | DescsT], [Value | ValuesT], OI/
+decode_row_description_message	pgsql_protocol.erl	/^decode_row_description_message(<<Count:16\/integer,/
+decode_row_description_message0	pgsql_protocol.erl	/^decode_row_description_message0(0, <<>>, Acc) -> {/
+decode_secs_and_tz	pgsql_protocol.erl	/^decode_secs_and_tz(SecsStr) ->$/
+decode_secs_and_tz0	pgsql_protocol.erl	/^decode_secs_and_tz0([], IsFloat, AccSecs) ->$/
+decode_secs_and_tz1	pgsql_protocol.erl	/^decode_secs_and_tz1(SecsStr, IsFloat, Sign, TZStr)/
+decode_secs_and_tz2	pgsql_protocol.erl	/^decode_secs_and_tz2(SecsStr, true, TZDelta) ->$/
+decode_string	pgsql_protocol.erl	/^decode_string(Binary) ->$/
+decode_tag	pgsql_connection.erl	/^decode_tag(Tag) ->$/
+decode_time_int	pgsql_protocol.erl	/^decode_time_int(Time) ->$/
+decode_timestamp_int	pgsql_protocol.erl	/^decode_timestamp_int(Timestamp) ->$/
+decode_value	pgsql_protocol.erl	/^decode_value(_Desc, null, _OIDMap, _IntegerDateTim/
+decode_value_bin	pgsql_protocol.erl	/^decode_value_bin(?BOOLOID, <<0>>, _OIDMap, _Intege/
+decode_value_text	pgsql_protocol.erl	/^decode_value_text(TypeOID, Value, _OIDMap) when Ty/
+decode_verb	pgsql_connection.erl	/^decode_verb(Verb) ->$/
+do_query	pgsql_connection.erl	/^do_query(Command, From, #state{current = undefined/
+do_query0	pgsql_connection.erl	/^do_query0({simple_query, Query, _QueryOptions, Tim/
+do_subscribe	pgsql_connection.erl	/^do_subscribe(Pid, List) ->$/
+do_unsubscribe	pgsql_connection.erl	/^do_unsubscribe(Pid, List) ->$/
+empty_query_response	pgsql_internal.hrl	/^-record(empty_query_response, {}).$/
+encode_array	pgsql_protocol.erl	/^encode_array(Elements, ArrayType, OIDMap, IntegerD/
+encode_array_binary	pgsql_protocol.erl	/^encode_array_binary(ArrayElements, ElementTypeOID)/
+encode_array_binary_header	pgsql_protocol.erl	/^encode_array_binary_header(Dims, HasNulls, Element/
+encode_array_binary_row	pgsql_protocol.erl	/^encode_array_binary_row([null | Tail], _HasNull, A/
+encode_array_elements	pgsql_protocol.erl	/^encode_array_elements([{array, SubArray} | Tail], /
+encode_array_text	pgsql_protocol.erl	/^encode_array_text([null | Tail], Acc) ->$/
+encode_bind_describe_execute	pgsql_connection.erl	/^encode_bind_describe_execute(Mode, Parameters, Par/
+encode_bind_message	pgsql_protocol.erl	/^encode_bind_message(PortalName, StatementName, Par/
+encode_bind_message	pgsql_protocol.erl	/^encode_bind_message(PortalName, StatementName, Par/
+encode_bind_message	pgsql_protocol.erl	/^encode_bind_message(PortalName, StatementName, Par/
+encode_cancel_message	pgsql_protocol.erl	/^encode_cancel_message(ProcID, Secret) ->$/
+encode_copy_data_message	pgsql_protocol.erl	/^encode_copy_data_message(Message) ->$/
+encode_copy_done	pgsql_protocol.erl	/^encode_copy_done() ->$/
+encode_copy_fail	pgsql_protocol.erl	/^encode_copy_fail(ErrorMessage) ->$/
+encode_describe_message	pgsql_protocol.erl	/^encode_describe_message(PortalOrStatement, Name) -/
+encode_execute_message	pgsql_protocol.erl	/^encode_execute_message(PortalName, MaxRows) ->$/
+encode_flush_message	pgsql_protocol.erl	/^encode_flush_message() ->$/
+encode_format	pgsql_protocol.erl	/^encode_format(text) -> <<0:16\/integer>>;$/
+encode_parameter	pgsql_protocol.erl	/^encode_parameter({array, List}, Type, OIDMap, Inte/
+encode_parse_message	pgsql_protocol.erl	/^encode_parse_message(PreparedStatementName, Query,/
+encode_password_message	pgsql_protocol.erl	/^encode_password_message(Password) ->$/
+encode_point_text	pgsql_protocol.erl	/^encode_point_text({X, Y}) ->$/
+encode_points_text	pgsql_protocol.erl	/^encode_points_text(Prefix, Suffix, [PHead|PTail]) /
+encode_query_message	pgsql_protocol.erl	/^encode_query_message(Query) ->$/
+encode_ssl_request_message	pgsql_protocol.erl	/^encode_ssl_request_message() ->$/
+encode_startup_message	pgsql_protocol.erl	/^encode_startup_message(Parameters) ->$/
+encode_string_message	pgsql_protocol.erl	/^encode_string_message(Identifier, String) ->    $/
+encode_sync_message	pgsql_protocol.erl	/^encode_sync_message() ->$/
+error_response	pgsql_internal.hrl	/^-record(error_response, {$/
+escape_array_text	pgsql_protocol.erl	/^escape_array_text(Text) when byte_size(Text) =:= 4/
+escape_array_text0	pgsql_protocol.erl	/^escape_array_text0(Text, Acc) ->$/
+expand	pgsql_protocol.erl	/^expand([], []) ->$/
+expand_aux	pgsql_protocol.erl	/^expand_aux([], 0, _, Current, Acc) ->$/
+extended_query	pgsql_connection.erl	/^extended_query(Query, Parameters, Connection) ->$/
+extended_query	pgsql_connection.erl	/^extended_query(Query, Parameters, QueryOptions, Co/
+extended_query	pgsql_connection.erl	/^extended_query(Query, Parameters, QueryOptions, Ti/
+extended_query_finalize	pgsql_connection.erl	/^extended_query_finalize(Tag, AccRows) ->$/
+extended_query_fn	pgsql_connection.erl	/^extended_query_fn(Row, AccRows) -> [Row | AccRows]/
+flush_until_ready_for_query	pgsql_connection.erl	/^flush_until_ready_for_query(Result, AsyncT, #state/
+fold	pgsql_connection.erl	/^fold(Function, Acc0, Query, Connection) ->$/
+fold	pgsql_connection.erl	/^fold(Function, Acc0, Query, Parameters, Connection/
+fold	pgsql_connection.erl	/^fold(Function, Acc0, Query, Parameters, QueryOptio/
+fold	pgsql_connection.erl	/^fold(Function, Acc0, Query, Parameters, QueryOptio/
+fold_finalize	pgsql_connection.erl	/^fold_finalize(_Tag, Acc) ->$/
+foreach	pgsql_connection.erl	/^foreach(Function, Query, Connection) ->$/
+foreach	pgsql_connection.erl	/^foreach(Function, Query, Parameters, Connection) -/
+foreach	pgsql_connection.erl	/^foreach(Function, Query, Parameters, QueryOptions,/
+foreach	pgsql_connection.erl	/^foreach(Function, Query, Parameters, QueryOptions,/
+foreach_finalize	pgsql_connection.erl	/^foreach_finalize(_Tag, _Function) ->$/
+foreach_fn	pgsql_connection.erl	/^foreach_fn(Row, Function) ->$/
+function_call_response	pgsql_internal.hrl	/^-record(function_call_response, {$/
+get_array_dims	pgsql_protocol.erl	/^get_array_dims([{array, SubElements} | _] = Row) -/
+handle_call	pgsql_connection.erl	/^handle_call({do_query, Command}, From, #state{} = /
+handle_cast	pgsql_connection.erl	/^handle_cast({set_parameter, Key, Value}, State0) -/
+handle_info	pgsql_connection.erl	/^handle_info({'EXIT', _From, normal}, State) ->$/
+handle_parameter	pgsql_connection.erl	/^handle_parameter(<<"integer_datetimes">> = Key, <</
+init	pgsql_connection.erl	/^init(Options) ->$/
+init	pgsql_connection_sup.erl	/^init(_Args) ->$/
+init	pgsql_sup.erl	/^init(_Args) ->$/
+is_in_failed_sql_transaction	pgsql_error.erl	/^is_in_failed_sql_transaction({pgsql_error, Fields}/
+is_integrity_constraint_violation	pgsql_error.erl	/^is_integrity_constraint_violation({pgsql_error, Fi/
+map	pgsql_connection.erl	/^map(Function, Query, Connection) ->$/
+map	pgsql_connection.erl	/^map(Function, Query, Parameters, Connection) ->$/
+map	pgsql_connection.erl	/^map(Function, Query, Parameters, QueryOptions, Con/
+map	pgsql_connection.erl	/^map(Function, Query, Parameters, QueryOptions, Tim/
+map_finalize	pgsql_connection.erl	/^map_finalize(_Tag, {_Function, Acc}) ->$/
+map_fn	pgsql_connection.erl	/^map_fn(Row, {Function, Acc}) -> {Function, [Functi/
+native_to_odbc	pgsql_connection.erl	/^native_to_odbc({error, _} = Error) -> Error;$/
+no_data	pgsql_internal.hrl	/^-record(no_data, {}).$/
+notice_response	pgsql_internal.hrl	/^-record(notice_response, {$/
+notification_response	pgsql_internal.hrl	/^-record(notification_response, {$/
+oob_cancel	pgsql_connection.erl	/^oob_cancel(#state{options = Options, backend_proci/
+oob_update_oid_map	pgsql_connection.erl	/^oob_update_oid_map(#state{options = Options0} = St/
+oob_update_oid_map_from_fields_if_required	pgsql_connection.erl	/^oob_update_oid_map_from_fields_if_required(Fields,/
+oob_update_oid_map_if_required	pgsql_connection.erl	/^oob_update_oid_map_if_required(OIDs, #state{oidmap/
+open	pgsql_connection.erl	/^open([Option | _OptionsT] = Options) when is_tuple/
+open	pgsql_connection.erl	/^open(Database, User) ->$/
+open	pgsql_connection.erl	/^open(Database, User, Password) ->$/
+open	pgsql_connection.erl	/^open(Host, Database, User, Password) ->$/
+open	pgsql_connection.erl	/^open(Host, Database, User, Password, Options0) ->$/
+open0	pgsql_connection.erl	/^open0(Options) ->$/
+param_query	pgsql_connection.erl	/^param_query(Query, Parameters, Connection) ->$/
+param_query	pgsql_connection.erl	/^param_query(Query, Parameters, QueryOptions, Conne/
+param_query	pgsql_connection.erl	/^param_query(Query, Parameters, QueryOptions, Timeo/
+parameter_description	pgsql_internal.hrl	/^-record(parameter_description, {$/
+parameter_status	pgsql_internal.hrl	/^-record(parameter_status, {$/
+parse_complete	pgsql_internal.hrl	/^-record(parse_complete, {}).$/
+pgsql_copy	pgsql_connection.erl	/^pgsql_copy(StartQuery, Data, From, State0 = #state/
+pgsql_extended_query	pgsql_connection.erl	/^pgsql_extended_query(Query, Parameters, Fun, Acc0,/
+pgsql_extended_query0	pgsql_connection.erl	/^pgsql_extended_query0(Query, Parameters, Fun, Acc0/
+pgsql_extended_query_receive_loop	pgsql_connection.erl	/^pgsql_extended_query_receive_loop(_LoopState, _Fun/
+pgsql_extended_query_receive_loop0	pgsql_connection.erl	/^pgsql_extended_query_receive_loop0(#parameter_stat/
+pgsql_open	pgsql_connection.erl	/^pgsql_open(#state{options = Options} = State0) ->$/
+pgsql_send_copy_data	pgsql_connection.erl	/^pgsql_send_copy_data(Data, From, #state{socket = {/
+pgsql_send_copy_end	pgsql_connection.erl	/^pgsql_send_copy_end(From, #state{socket = {SockMod/
+pgsql_send_copy_end_flush	pgsql_connection.erl	/^pgsql_send_copy_end_flush(Result0, #state{socket =/
+pgsql_setup	pgsql_connection.erl	/^pgsql_setup(Sock, #state{options = Options} = Stat/
+pgsql_setup_authenticate_cleartext_password	pgsql_connection.erl	/^pgsql_setup_authenticate_cleartext_password(Socket/
+pgsql_setup_authenticate_md5_password	pgsql_connection.erl	/^pgsql_setup_authenticate_md5_password(Socket, Salt/
+pgsql_setup_authenticate_md5_password	pgsql_connection.erl	/^pgsql_setup_authenticate_md5_password(Socket, Salt/
+pgsql_setup_authenticate_password	pgsql_connection.erl	/^pgsql_setup_authenticate_password({SockModule, Soc/
+pgsql_setup_finish	pgsql_connection.erl	/^pgsql_setup_finish(Socket, #state{subscribers = Su/
+pgsql_setup_ssl	pgsql_connection.erl	/^pgsql_setup_ssl(Sock, #state{} = State0) ->$/
+pgsql_setup_startup	pgsql_connection.erl	/^pgsql_setup_startup(#state{socket = {SockModule, S/
+pgsql_simple_query	pgsql_connection.erl	/^pgsql_simple_query(Query, Timeout, From, #state{so/
+pgsql_simple_query0	pgsql_connection.erl	/^pgsql_simple_query0(Query, AsyncT, #state{socket =/
+pgsql_simple_query_loop	pgsql_connection.erl	/^pgsql_simple_query_loop(Result0, Acc, AsyncT, #sta/
+portal_suspended	pgsql_internal.hrl	/^-record(portal_suspended, {}).$/
+process_active_data	pgsql_connection.erl	/^process_active_data(<<Code:8\/integer, Size:32\/inte/
+ready_for_query	pgsql_internal.hrl	/^-record(ready_for_query, {$/
+receive_message	pgsql_connection.erl	/^receive_message({SockModule, Sock}, AsyncT, Subscr/
+requires_statement_description	pgsql_connection.erl	/^requires_statement_description(batch, ParametersL)/
+return_async	pgsql_connection.erl	/^return_async({error, closed} = Error, sync, #state/
+row_description	pgsql_internal.hrl	/^-record(row_description, {$/
+row_description_field	pgsql_internal.hrl	/^-record(row_description_field, {$/
+send_copy_data	pgsql_connection.erl	/^send_copy_data(Data, {pgsql_connection, Connection/
+send_copy_end	pgsql_connection.erl	/^send_copy_end({pgsql_connection, ConnectionPid}) -/
+set_active_once	pgsql_connection.erl	/^set_active_once(#state{socket = closed}) -> ok;$/
+set_parameter_async	pgsql_connection.erl	/^set_parameter_async(_Key, _Value, sync) -> ok;$/
+set_passive_or_reconnect_if_required	pgsql_connection.erl	/^set_passive_or_reconnect_if_required(#state{socket/
+set_succeeded_or_within_failed_transaction	pgsql_connection.erl	/^set_succeeded_or_within_failed_transaction({set, [/
+simple_query	pgsql_connection.erl	/^simple_query(Query, Connection) ->$/
+simple_query	pgsql_connection.erl	/^simple_query(Query, QueryOptions, Connection) ->$/
+simple_query	pgsql_connection.erl	/^simple_query(Query, QueryOptions, Timeout, {pgsql_/
+sql_query	pgsql_connection.erl	/^sql_query(Query, Connection) ->$/
+sql_query	pgsql_connection.erl	/^sql_query(Query, QueryOptions, Connection) ->$/
+sql_query	pgsql_connection.erl	/^sql_query(Query, QueryOptions, Timeout, Connection/
+start	pgsql_app.erl	/^start(_Type, _StartArgs) ->$/
+start_child	pgsql_connection_sup.erl	/^start_child(Options) ->$/
+start_link	pgsql_connection.erl	/^start_link(Options) ->$/
+start_link	pgsql_connection_sup.erl	/^start_link() ->$/
+start_link	pgsql_sup.erl	/^start_link() -> supervisor:start_link({local, ?MOD/
+state	pgsql_connection.erl	/^-record(state, {$/
+stop	pgsql_app.erl	/^stop(_State) ->$/
+subscribe	pgsql_connection.erl	/^subscribe(Pid, {pgsql_connection, ConnectionPid}) /
+terminate	pgsql_connection.erl	/^terminate(_Reason, #state{socket = closed}) ->$/
+type_to_oid	pgsql_protocol.erl	/^type_to_oid(Type, OIDMap) ->$/
+unsubscribe	pgsql_connection.erl	/^unsubscribe(Pid, {pgsql_connection, ConnectionPid}/
+update_oid_map	pgsql_connection.erl	/^update_oid_map(#state{} = State0) ->$/
